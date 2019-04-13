@@ -1,0 +1,79 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the plusMinus function below.
+    static void plusMinus(int[] arr) {
+        
+        int len = arr.length;
+        int countz = 0;
+        int countp = 0;
+        int countn = 0;
+        for (int i : arr){
+            if(i==0){
+                countz +=1;
+            }else if(i < 0){
+                countn +=1;
+            }else if(i>0){
+                countp +=1;
+            }
+        }
+        
+        //System.out.println(len+" "+countp+" "+countn+" "+countz);
+        
+        java.text.DecimalFormat df = new java.text.DecimalFormat("0.000000");
+        float result = (float)countp/len;
+        System.out.println(df.format(result));
+        result = (float)countn/len;
+        System.out.println(df.format(result));
+        result = (float)countz/len;
+        System.out.println(df.format(result));
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] arr = new int[n];
+
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < n; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
+        }
+
+        plusMinus(arr);
+
+        scanner.close();
+    }
+}
+
+#Result
+input:
+6
+-4 3 -9 0 4 1
+output:
+0.500000
+0.333333
+0.166667
+
+====================
+
+input:
+8
+1 2 3 -1 -2 -3 0 0
+output:
+0.375000
+0.375000
+0.250000
