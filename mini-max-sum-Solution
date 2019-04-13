@@ -60,9 +60,11 @@ public class Solution {
     }
 }
 
-#resukt
+#result
 input: 1 2 3 4 5
 output: 10 14
+
+====================
 
 input: 6 5 3 2 2
 output: 12 16
